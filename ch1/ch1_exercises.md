@@ -38,3 +38,22 @@ Best Solution - Solution to Proof of Work Puzzle (SHA-256 Hash matching)
 Approximate Solution - Multiperiod Portfolio Optimization, Inventory Management and Optimal Execution of Trades on a Limit Order Book subject to time and fee constraints
 ```
 
+1.2-1
+Give an example of an application that requires algorithmic content at the applica- tion level, and discuss the function of the algorithms involved.
+```
+Rendering a scene in a video game. The algorithms determine the RGB (and alpha) values at each time t, simulate the physics of the world.
+```
+
+1.2-2
+Suppose we are comparing implementations of insertion sort and merge sort on the same machine. For inputs of size n, insertion sort runs in 8n^2 steps, while merge sort runs in 64n lg n steps. For which values of n does insertion sort beat merge sort?
+```
+8*n^2 = 64 * n * lg n      --> n^2 = 8 * n * lg n      --> n = 8 * ln n   --> n = 43.5593...
+n < 44  values for which insertion sort is faster than merge sort
+```
+
+1.2-3
+What is the smallest value of n such that an algorithm whose running time is 100n^2 runs faster than an algorithm whose running time is 2^n on the same machine?
+```
+100 * n^2 = 2^n   --> n = 14.3247...
+n > 14  values for which algorithm with running time 100n^2 runs faster than algorithm with runtime 2^n
+```
