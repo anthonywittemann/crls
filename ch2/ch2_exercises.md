@@ -1,10 +1,10 @@
 2.1-1
 Using Figure 2.2 as a model, illustrate the operation of INSERTION-SORT on the array A = [31, 41, 59, 26, 41, 58]
-1. A = [31, 41, 59, 26, 41, 58]
-2. A = [31, 41, 59, 26, 41, 58]
-3. A = [26, 31, 41, 59, 41, 58]
-4. A = [26, 31, 41, 41, 59, 58]
-5. A = [26, 31, 41, 41, 58, 59]
+1. A = [31, 41+, 59, 26, 41, 58]
+2. A = [31, 41, 59+, 26, 41, 58]
+3. A = [26, 31, 41, 59, 41+, 58]
+4. A = [26, 31, 41, 41, 59, 58+]
+5. A = [26, 31, 41, 41, 58, 59+]
 
 2.1-2
 Rewrite the INSERTION-SORT procedure to sort into nonincreasing instead of non- decreasing order.
@@ -65,3 +65,44 @@ def add_two_nbit_binary_ints(A: List[int], B: List[int]):
     return bin_sum
 
 ```
+
+
+2.2-1
+Express the function n^3/1000 +􏰂 100n^2 􏰂+ 100n + 3 in terms of theta-n-notation.
+```O(n^3)```
+
+2.2-2
+Consider sorting n numbers stored in array A by first finding the smallest element of A and exchanging it with the element in A[1]􏰃. Then find the second smallest element of A, and exchange it with A[2􏰃]. Continue in this manner for the first n elements of A. Write pseudocode for this algorithm, which is known as *selection sort*. What loop invariant does this algorithm maintain? Why does it need to run for only the first n elements, rather than for all n elements? Give the best-case and worst-case running times of selection sort in theta-n-notation.
+```
+def selection_sort(arr: list) -> list:
+    def swap(i: int, j: int):
+        arr[i], arr[j] = arr[j], arr[i]
+
+    min, min_idx = -inf, -1
+    for i in range(len(arr)):         # iterate over each element in the arr
+        for j in range(i, len(arr)):  # find the min for the unsorted part of the arr
+            if arr[j] < min:
+                min, min_idx = arr[j], j
+        swap(i, min_idx)
+
+    return arr
+
+
+Best case: O(n) 
+Worst case: O(n^2)
+```
+
+2.2-3
+Consider linear search again (see Exercise 2.1-3). How many elements of the input sequence need to be checked on the average, assuming that the element being searched for is equally likely to be any element in the array? How about in the worst case? What are the average-case and worst-case running times of linear search in theta-n-notation? Justify your answers.
+```
+avg # elements to be checked: n/2
+worst case # elements to be checked: n
+O(n) for both avg case and worst case
+```
+
+2.2-4
+How can we modify almost any algorithm to have a good best-case running time?
+```
+Add a check at the beginning of the algorithm to see if the input already satisfies the desired output.
+```
+
